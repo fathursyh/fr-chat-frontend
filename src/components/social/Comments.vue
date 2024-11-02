@@ -7,11 +7,11 @@
     </div>
     <div class="max-h-fit w-screen min-h-fit divide-y border-b-2" v-for="comment in commentList" :key="comment._id">
         <div class="min-h-20 grid grid-cols-9 font-Poppins text-sm">
-            <div class="col-span-2 flex flex-col justify-center items-center bg-maroon-theme gap-2">
-                <img :src="comment.userId.profilePicture? User.readPP(comment.userId.profilePicture) : '/person.jpg'" alt="" class="w-10 h-10">
-                <p class="text-white break-words text-xs text-wrap max-w-20">{{ comment.userId.username }}</p>
+            <div class="col-span-2 flex flex-col justify-start items-center p-2 bg-white">
+                <img :src="comment.userId.profilePicture? User.readPP(comment.userId.profilePicture) : '/person.jpg'" alt="" class=" w-auto h-14 rounded-full">
             </div>
-            <div class="col-span-7 bg-white p-4 text-pretty flex flex-col gap-4">
+            <div class="col-span-7 bg-white text-pretty flex flex-col py-2 ps-2 pe-6">
+                <p class="text-blue-500 break-words text-xs text-wrap opacity-90">@{{ comment.userId.username }}</p>
                 <p v-html="comment.comment.replace(/\n/g, '<br>')" class="text-gray-600"></p>
                 <p class="block mt-auto text-blue-500 text-[0.8rem] text-right">{{ Post.timeAgo(new Date(comment.commentDate)) }}</p>
             </div>
