@@ -6,7 +6,7 @@ import { usePost } from "./post";
 import { socket } from "@/socket";
 
 export const useUser = defineStore('user', () => {
-const serverURL = 'https://d0468pxs-3006.asse.devtunnels.ms';
+const serverURL = 'http://localhost:3000';
   const Post = usePost();
   /* *********** STATE ************ */
   const state = reactive({

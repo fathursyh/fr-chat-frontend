@@ -4,7 +4,7 @@ import { createPinia } from "pinia";
 import { usePost } from "./stores/post";
 import { useUser } from "./stores/auth";
 
-const URL = "https://d0468pxs-3006.asse.devtunnels.ms";
+const URL = "http://localhost:3000";
 
 export const socket = io(URL, {
   withCredentials: true,
