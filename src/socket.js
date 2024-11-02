@@ -4,9 +4,10 @@ import { createPinia } from "pinia";
 import { usePost } from "./stores/post";
 import { useUser } from "./stores/auth";
 
-const URL = process.env.NODE_ENV === "production" ? undefined : "http://localhost:3000";
+const URL = "https://d0468pxs-3006.asse.devtunnels.ms";
 
 export const socket = io(URL, {
+  withCredentials: true,
   autoConnect: true,
   reconnection: true,
   timeout: 5000,

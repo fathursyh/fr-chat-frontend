@@ -6,7 +6,7 @@ import { useUser } from "./auth";
 import { socket } from "@/socket";
 
 
-const serverURL = 'http://localhost:3000';
+const serverURL = 'https://d0468pxs-3006.asse.devtunnels.ms';
 export const usePost = defineStore('post', () => {
     const User = useUser();
     const State = useState();

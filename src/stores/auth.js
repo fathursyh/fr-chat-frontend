@@ -6,7 +6,7 @@ import { usePost } from "./post";
 import { socket } from "@/socket";
 
 export const useUser = defineStore('user', () => {
-const serverURL = 'http://localhost:3000';
+const serverURL = 'https://d0468pxs-3006.asse.devtunnels.ms';
   const Post = usePost();
   /* *********** STATE ************ */
   const state = reactive({
@@ -16,6 +16,7 @@ const serverURL = 'http://localhost:3000';
     isLogin: false,
     welcome: true,
   })
+  //
   const notifications = reactive({
     comments: [],
     likes: [],
