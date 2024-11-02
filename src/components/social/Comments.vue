@@ -8,7 +8,7 @@
     <div class="max-h-fit w-screen min-h-fit divide-y border-b-2" v-for="comment in commentList" :key="comment._id">
         <div class="min-h-20 grid grid-cols-9 font-Poppins text-sm">
             <div class="col-span-2 flex flex-col justify-center items-center bg-gray-200 gap-2">
-                <img :src="comment.userId.profilePicture? comment.userId.profilePicture : '/person.jpg'" alt="" class="w-8 h-8 rounded-full">
+                <img :src="comment.userId.profilePicture? User.readPP(comment.userId.profilePicture) : '/person.jpg'" alt="" class="w-8 h-8 rounded-full">
                 <p class="text-gray-800 break-words text-xs text-wrap max-w-20">@{{ comment.userId.username }}</p>
             </div>
             <div class="col-span-7 bg-white p-4 text-pretty flex flex-col gap-4">
@@ -20,9 +20,11 @@
 </template>
 
 <script setup>
-    import { usePost } from "@/stores/post"
+    import { useUser } from "@/stores/auth";
+import { usePost } from "@/stores/post"
     import { computed, ref } from "vue";
     const Post = usePost();
+    const User = useUser();
     const props = defineProps({
         comments: {type: Array, },
         cek : {type: Number}
