@@ -6,7 +6,7 @@ import { useUser } from "./auth";
 import { socket } from "@/socket";
 
 
-const serverURL = 'https://fathursyh.my.id/api';
+const serverURL = 'https://fathursyh.my.id';
 export const usePost = defineStore('post', () => {
     const User = useUser();
     const State = useState();
