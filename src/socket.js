@@ -17,6 +17,7 @@ export const socket = io(URL, {
 
 // on connect event handler
 socket.on("connect", () => {
+  console.log('aloo');
   const State = useState();
   const User = useUser();
   State.changeState();
