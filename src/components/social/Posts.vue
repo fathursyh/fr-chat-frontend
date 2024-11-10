@@ -18,9 +18,6 @@
           class="col-span-5 flex flex-col pe-6 py-2 cursor-pointer"
           @click="checkPost(post._id)"
           @click.right.prevent="openMenu(post)"
-          @touchstart.prevent="handleTouchStart(post)"
-          @touchend.prevent="handleTouchEnd(post._id)"
-          @touchcancel.prevent="handleTouchEnd(post._id)"
         >
           <h5
             class="font-semibold text-base font-Poppins flex items-center gap-1"
