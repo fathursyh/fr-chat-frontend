@@ -7,7 +7,7 @@ import { useUser } from "./stores/auth";
 const URL = "https://fathursyh.my.id/api";
 
 export const socket = io(URL, {
-  path: '/api/socket.io',
+  path: '/api',
   transports: ['websocket', 'polling'],
   secure: true,
   withCredentials: true,
