@@ -7,6 +7,8 @@ import { useUser } from "./stores/auth";
 const URL = "https://fathursyh.my.id/api";
 
 export const socket = io(URL, {
+  path: './socket.io',
+  secure: true,
   withCredentials: true,
   autoConnect: true,
     reconnection: true,
