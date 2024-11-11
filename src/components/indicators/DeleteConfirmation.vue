@@ -20,7 +20,11 @@
 <script setup>
     import { usePost } from '@/stores/post';
     import { useState } from '@/stores/state';
-import { useRoute, useRouter } from 'vue-router';
+    import { useRoute, useRouter } from 'vue-router';
+
+    const props = defineProps({
+        postId: {type: String, required: false}
+    })
 
     const State = useState();
     const Post = usePost();
@@ -28,7 +32,7 @@ import { useRoute, useRouter } from 'vue-router';
     const router = useRouter();
     const confirmDelete = async(choice) => {
         if(choice) {
-            await Post.deletePost();
+            await Post.deletePost(props.postId);
         }
         State.state.deleteConfirm = false;
         if(route.name === 'post-detail') {

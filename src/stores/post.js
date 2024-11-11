@@ -127,9 +127,9 @@ export const usePost = defineStore('post', () => {
       } catch (e) {console.error(e)}
     }
 
-    const deletePost = async() => {
+    const deletePost = async(postId) => {
       try{
-        const removePost = await axios.delete(`${serverURL}/api/posts/deletePost`, {params: {postId: State.state.postMenuId}});
+        const removePost = await axios.delete(`${serverURL}/api/posts/deletePost`, {params: {postId: postId || State.state.postMenuId}});
         if(removePost.status === 200) {
           updated();
           State.state.postMenuId = '';

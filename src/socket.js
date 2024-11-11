@@ -7,12 +7,14 @@ import { useUser } from "./stores/auth";
 const URL = "https://fathursyh.my.id/api";
 
 export const socket = io(URL, {
-  path: '/api',
-  transports: ['websocket', 'polling'],
+  path: '/api/socket.io',
+  reconnectionAttempts: 5,
+  // transports: ['websocket', 'polling'],
   secure: true,
   withCredentials: true,
-  autoConnect: true,
-    reconnection: true,
+  autoConnect: false,
+  reconnection: true,
+  
   timeout: 5000,
 });
 

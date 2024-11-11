@@ -1,13 +1,15 @@
 <template>
   <div>
+    <delete-confirmation :postId="post._id" v-if="deleteConfirm"></delete-confirmation>
     <post-menu-detail
-      :active="open"
-      :editable="limit"
-      :postData="post"
-      v-if="post"
-      @onLike="likePost"
-      @closeMenu="open = false"
-      @onEdit="openEdit"
+    :active="open"
+    :editable="limit"
+    :postData="post"
+    v-if="post"
+    @onLike="likePost"
+    @closeMenu="open = false"
+    @onEdit="openEdit"
+    @onDelete="deletePost"
     ></post-menu-detail>
     <div class="p-4 z-40 fixed bg-white w-full">
       <div class="flex gap-2 cursor-pointer items-center" @click="$router.back">
@@ -166,6 +168,7 @@
 </template>
 
 <script setup>
+  import DeleteConfirmation from '../indicators/DeleteConfirmation.vue';
   import PostMenuDetail from "./PostMenuDetail.vue";
   import Comments from "./Comments.vue";
   import { usePost } from "@/stores/post";
@@ -186,6 +189,7 @@
   const showComment = ref(false);
   const edit = ref(false);
   const editedText = ref();
+  const deleteConfirm = ref(false);
 
   const isFriend = ref(true);
 
@@ -234,6 +238,10 @@
         edit.value = false;
       }
     }
+  };
+  const deletePost = async() => {
+    open.value = false;
+    deleteConfirm.value = true;
   };
   const newComment = async (comment) => {
     await Post.addComment(User.state.userData.id, post.value._id, comment);
