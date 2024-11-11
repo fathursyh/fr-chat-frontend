@@ -13,7 +13,7 @@
         />
         <div class="absolute w-10 h-10 bg-white rounded-full -bottom-4 grid place-content-center shadow-md active:bg-gray-400" @click="inputImage.click()">
           <form hidden id="imageForm" enctype="multipart/form-data" method="POST">
-            <input type="file" ref="inputImage" @change="onFileChange" name="profilePicture">
+            <input type="file" ref="inputImage" @change="onFileChange" name="profilePicture" accept="image/png, image/gif, image/jpeg, image/jpg">
           </form>
           <svg
             class="w-8 h-8 text-gray-800 dark:text-white"
