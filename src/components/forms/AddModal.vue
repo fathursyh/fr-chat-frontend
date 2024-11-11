@@ -47,6 +47,7 @@
                 rows="4"
                 class="block p-2.5 w-full text-base font-medium text-gray-700 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="What's on your mind?"
+                maxlength="140"
               ></textarea>
             </div>
           </div>
@@ -93,6 +94,9 @@
   });
 
   const add = async() => {
+  if(postData.body.length > 140) {
+    return null;
+  }
     const newPost = await Post.addNewPost(postData.id, postData.body);
     if(newPost == 'ok') {
       State.showMessageToast(true, 'Post added successfully')
@@ -104,6 +108,9 @@
   }
 
   const edit = async() => {
+    if(postData.body.length > 140) {
+    return null;
+  }
     if(postData.body !== State.alert.addModal.body) {
       const edit = await Post.editPost(State.state.postMenuId, postData.body);
       if(edit) {
